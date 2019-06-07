@@ -16,10 +16,10 @@ myApp.controller('empController', function ($scope, $route, $routeParams, $http)
         });
     };
 
-
+    console.log("out");
     $scope.addEmployee = function () {
-        //var id = $routeParams.id;
         console.log("adddd");
+        //var id = $routeParams.id;
         $http.post('/employees/',
             $scope.employee).then(function (response) {
             console.log("3");
@@ -53,4 +53,18 @@ myApp.controller('empController', function ($scope, $route, $routeParams, $http)
 
 
 
-});
+})
+
+.controller('create', function($scope, $route, $routeParams, $http){
+    console.log("create");
+    $scope.addEmployee = function () {
+        console.log("adddd");
+        //var id = $routeParams.id;
+        $http.post('/employees/',
+            $scope.employee).then(function (response) {
+            console.log("3");
+            // $scope.employee = response.data;
+            window.location.href = '/';
+        });
+    };
+})
